@@ -14,6 +14,7 @@ public class Main {
 
 		List<Produto> produtos = new ArrayList<>();
 		Produto p = new Produto();
+		
 		System.out.println("=====================================================================");
 		System.out.println("         BEM VINDO AO SISTEMA DE GESTÃO DE PRODUTOS!!");
 		System.out.println("=====================================================================");
@@ -28,10 +29,9 @@ public class Main {
 			produtos.add(produto);
 		}
 		System.out.println("Seu(s) produto(s):");
-		for (Produto produto : produtos) {
-			System.out.println(produto.toString());
+		p.MostrarProdutos(produtos);
 
-		}
+		
 
 		while (cond == true) {
 			System.out.println("\n=================================");
@@ -41,7 +41,8 @@ public class Main {
 			System.out.println("[2]- Editar produto");
 			System.out.println("[3]- Remover produto");
 			System.out.println("[4]- Visualizar produtos");
-			System.out.println("[5]- Sair");
+			System.out.println("[5]- Ordernar produtos");
+			System.out.println("[6]- Sair");
 			System.out.print(" Opção >> ");
 			int opcao = sc.nextInt();
 
@@ -67,9 +68,13 @@ public class Main {
 				System.out.print(">> ");
 				int ide = sc.nextInt();
 				boolean encontrado = false;
-				for (Produto produto : produtos) {
-					if (ide == produto.getId()) {
-						produto.Preenchimento();
+				for (Produto produt : produtos) {
+					
+					if (ide == produt.getId()) {
+				 System.out.println("O que você gostaria de editar?");
+			     System.out.print("[1]-Nome\r[2]-Quantidade\r[3]-Preço\r[4]-validade\r[5]-Tudo\r Opção >> ");
+				 int resp = sc.nextInt();
+						produt.Editar(resp);
 						encontrado = true;
 					}
 				}
@@ -108,6 +113,12 @@ public class Main {
 
 				break;
 			case 5:
+				System.out.println("\nOrdenar por:\r[1]-Id\r[2]-Nome\r[3]-Estoque\r[4]-Preço\r[5]-Validade");
+				System.out.print(" Opção >> ");
+				int r = sc.nextInt();
+				p.Ordenar(r,produtos);
+				break;
+			case 6:
 				cond = false;
 				System.out.println("Muito Obrigado!!");
 				break;
