@@ -37,7 +37,7 @@ public class Main {
 
 		for (int i = 0; i < tamanho; i++) {
 			Produto produto = new Produto();
-			System.out.println(" " + (i + 1) + "° Produto:");
+			System.out.println("\n " + (i + 1) + "° Produto:");
 			produto.setId(id++);
 			produto.Preenchimento();
 			produtos.add(produto);
