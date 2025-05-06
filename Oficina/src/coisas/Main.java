@@ -60,6 +60,7 @@ public class Main {
 
 			switch (opcao) {
 			case 1:
+				Valido = false;
 				while (!Valido) {
 					try {
 						System.out.print("\nQuantos produtos diferentes serão adicionados: ");
@@ -71,7 +72,7 @@ public class Main {
 					}
 				}
 				for (int i = 0; i < tamanho; i++) {
-					System.out.println("Produto " + (i + 1) + "/" + tamanho);
+					System.out.println("\nProduto " + (i + 1) + "/" + tamanho);
 					Produto produto = new Produto();
 					produto.setId(id++);
 					produto.Preenchimento();
@@ -91,10 +92,9 @@ public class Main {
 					int ide = sc.nextInt();
 					for (Produto produt : produtos) {
 						if (ide == produt.getId()) {
-							System.out.println("O que você gostaria de editar?");
+							System.out.println("\nO que você gostaria de editar?");
 							System.out.print("[1]-Nome\r[2]-Quantidade\r[3]-Preço\r[4]-validade\r[5]-Tudo\r Opção >> ");
 							int resp = sc.nextInt();
-							sc.nextLine();
 							produt.Editar(resp);
 							encontrado = true;
 						}
@@ -104,7 +104,7 @@ public class Main {
 					}
 
 				} catch (Exception e) {
-					System.out.println("Deve ser um Número inteiro");
+					System.err.println("Deve ser um Número inteiro");
 				}
 
 				break;
@@ -129,11 +129,11 @@ public class Main {
 							}
 						}
 						if (!encontrado) {
-							System.out.println("Produto não encontrado");
+							System.err.println("Produto não encontrado");
 						}
 					}
 				} catch (Exception e) {
-					System.out.println("Deve ser um número inteiro");
+					System.err.println("Deve ser um número inteiro");
 				}
 
 				break;
@@ -150,13 +150,13 @@ public class Main {
 					int r = sc.nextInt();
 					p.Ordenar(r, produtos);
 				} catch (Exception e) {
-					System.out.println("Deve ser um número inteiro");
+					System.err.println("Deve ser um número inteiro");
 				}
 
 				break;
 			case 6:
 				cond = false;
-				System.out.println("\nMuito Obrigado!!");
+				System.out.println("Muito Obrigado!!");
 				break;
 
 			default:
