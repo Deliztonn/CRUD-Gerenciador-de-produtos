@@ -123,6 +123,7 @@ public class Produto {
 			}
 			break;
 		case 5:
+			sc.nextLine();
 			Preenchimento();
 			break;
 
