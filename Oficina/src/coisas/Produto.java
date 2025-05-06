@@ -20,10 +20,10 @@ public class Produto {
 	private LocalDate Validade;
 
 	public void Preenchimento() {
-		
-				System.out.print("\nNome do produto         : ");
-				this.Nome = sc.nextLine();
-		
+
+		System.out.print("\nNome do produto         : ");
+		this.Nome = sc.nextLine();
+
 		boolean Valido = false;
 		while (!Valido) {
 			try {
@@ -34,8 +34,7 @@ public class Produto {
 				} else {
 					Valido = true;
 				}
-			}
-			catch (Exception e) {
+			} catch (Exception e) {
 				sc.nextLine();
 				System.err.println("Número deve ser inteiro!!");
 			}
@@ -73,22 +72,21 @@ public class Produto {
 
 	public void Editar(int resp) {
 		switch (resp) {
-		case 1:		
-			System.out.print("Novo nome de "+getNome()+": ");
+		case 1:
+			System.out.print("Novo nome de " + getNome() + ": ");
 			this.Nome = sc.nextLine();
 			break;
 		case 2:
-			boolean Valido = false;			
+			boolean Valido = false;
 			try {
-				System.out.print("\nNova quantidade de estoque "+getNome()+": ");
+				System.out.print("\nNova quantidade de estoque " + getNome() + ": ");
 				this.Quantidade = sc.nextInt();
 				if (Quantidade <= 0) {
 					System.err.println("Estoque deve ser maior que 0");
 				} else {
 					Valido = true;
 				}
-			}
-			catch (Exception e) {
+			} catch (Exception e) {
 				sc.nextLine();
 				System.err.println("Número deve ser inteiro!!");
 			}
@@ -98,7 +96,7 @@ public class Produto {
 			while (!Valido) {
 				try {
 					sc.nextLine();
-					System.out.print("\nNovo Preço de "+getNome()+" : R$");
+					System.out.print("\nNovo Preço de " + getNome() + " : R$");
 					this.Preco = sc.nextDouble();
 					if (this.Preco <= 0) {
 						System.err.println("Preço deve ser maior que 0");
@@ -115,14 +113,14 @@ public class Produto {
 			while (!Valido) {
 				try {
 					sc.nextLine();
-					System.out.print("Nova Validade "+getNome()+": ");
+					System.out.print("Nova Validade " + getNome() + ": ");
 					Valido = true;
 					setEntrada(sc.next());
 				} catch (Exception e) {
 					System.err.println("Data no formato errado!");
 				}
 			}
-		break;
+			break;
 		case 5:
 			Preenchimento();
 			break;
@@ -132,11 +130,13 @@ public class Produto {
 			break;
 		}
 	}
+
 	public void MostrarProdutos(List<Produto> produtos) {
 		for (Produto produto : produtos) {
 			System.out.println(produto);
 		}
 	}
+
 	public void Ordenar(int resp, List<Produto> produtos) {
 		switch (resp) {
 		case 1:
@@ -161,7 +161,7 @@ public class Produto {
 			break;
 		default:
 			System.out.println("Organização cancelada");
-			
+
 			break;
 		}
 	}
