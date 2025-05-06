@@ -85,21 +85,27 @@ public class Main {
 				for (Produto produto : produtos) {
 					System.out.println("Id: " + produto.getId() + ", Nome: " + produto.getNome());
 				}
-				System.out.print(">> ");
-				int ide = sc.nextInt();
 				boolean encontrado = false;
-				for (Produto produt : produtos) {
-					if (ide == produt.getId()) {
-						System.out.println("O que você gostaria de editar?");
-						System.out.print("[1]-Nome\r[2]-Quantidade\r[3]-Preço\r[4]-validade\r[5]-Tudo\r Opção >> ");
-						int resp = sc.nextInt();
-						produt.Editar(resp);
-						encontrado = true;
+				try {
+					System.out.print(">> ");
+					int ide = sc.nextInt();
+					for (Produto produt : produtos) {
+						if (ide == produt.getId()) {
+							System.out.println("O que você gostaria de editar?");
+							System.out.print("[1]-Nome\r[2]-Quantidade\r[3]-Preço\r[4]-validade\r[5]-Tudo\r Opção >> ");
+							int resp = sc.nextInt();
+							produt.Editar(resp);
+							encontrado = true;
+						}
 					}
+					if (!encontrado) {
+						System.err.println("Produto não encontrado");
+					}
+
+				} catch (Exception e) {
+					System.out.println("Deve ser um Número inteiro");
 				}
-				if (!encontrado) {
-					System.err.println("Produto não encontrado");
-				}
+
 				break;
 
 			case 3:
@@ -110,25 +116,24 @@ public class Main {
 
 				try {
 					System.out.print(">> ");
-				int	ids = sc.nextInt();
-				encontrado = false;
-				for (Produto produto : produtos) {
-					if (ids == produto.getId()) {
-						System.out.println("Tem certeza que deseja remover " + produto.getNome() + "?[sim/não]");
-						encontrado = true;
-						String resp = sc.next().toLowerCase();
-						if (resp.equals("sim")) {
-							produtos.remove(produto.getId());
+					int ids = sc.nextInt();
+					encontrado = false;
+					for (Produto produto : produtos) {
+						if (ids == produto.getId()) {
+							System.out.println("Tem certeza que deseja remover " + produto.getNome() + "?[sim/não]");
+							encontrado = true;
+							String resp = sc.next().toLowerCase();
+							if (resp.equals("sim")) {
+								produtos.remove(produto.getId());
+							}
+						}
+						if (!encontrado) {
+							System.out.println("Produto não encontrado");
 						}
 					}
-					if (!encontrado) {
-						System.out.println("Produto não encontrado");
-					}
-				}
 				} catch (Exception e) {
 					System.out.println("Deve ser um número inteiro");
 				}
-
 
 				break;
 			case 4:
