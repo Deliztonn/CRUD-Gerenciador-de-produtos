@@ -94,6 +94,7 @@ public class Main {
 							System.out.println("O que você gostaria de editar?");
 							System.out.print("[1]-Nome\r[2]-Quantidade\r[3]-Preço\r[4]-validade\r[5]-Tudo\r Opção >> ");
 							int resp = sc.nextInt();
+							sc.nextLine();
 							produt.Editar(resp);
 							encontrado = true;
 						}
