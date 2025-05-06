@@ -96,7 +96,6 @@ public class Produto {
 			Valido = false;
 			while (!Valido) {
 				try {
-					sc.nextLine();
 					System.out.print("\nNovo Preço de " + getNome() + " : R$");
 					this.Preco = sc.nextDouble();
 					if (this.Preco <= 0) {
