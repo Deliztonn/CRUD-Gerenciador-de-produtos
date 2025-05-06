@@ -62,7 +62,7 @@ public class Main {
 			case 1:
 				while (!Valido) {
 					try {
-						System.out.print("Quantos produtos diferentes serão adicionados: ");
+						System.out.print("\nQuantos produtos diferentes serão adicionados: ");
 						tamanho = sc.nextInt();
 						Valido = true;
 					} catch (Exception e) {
@@ -81,7 +81,7 @@ public class Main {
 
 				break;
 			case 2:
-				System.out.println("Que produto você deseja editar?(Id)");
+				System.out.println("\nQue produto você deseja editar?(Id)");
 				for (Produto produto : produtos) {
 					System.out.println("Id: " + produto.getId() + ", Nome: " + produto.getNome());
 				}
@@ -110,7 +110,7 @@ public class Main {
 				break;
 
 			case 3:
-				System.out.println("Que produto você deseja remover?(Id)");
+				System.out.println("\nQue produto você deseja remover?(Id)");
 				for (Produto produto : produtos) {
 					System.out.println("Id: " + produto.getId() + ", Nome: " + produto.getNome());
 				}
@@ -156,7 +156,7 @@ public class Main {
 				break;
 			case 6:
 				cond = false;
-				System.out.println("Muito Obrigado!!");
+				System.out.println("\nMuito Obrigado!!");
 				break;
 
 			default:
