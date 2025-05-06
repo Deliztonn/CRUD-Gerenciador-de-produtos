@@ -126,6 +126,7 @@ public class Main {
 							String resp = sc.next().toLowerCase();
 							if (resp.equals("sim")) {
 								produtos.remove(produto.getId());
+								System.out.println("Produto removido!");
 							}
 						}
 						if (!encontrado) {
